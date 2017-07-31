@@ -11,4 +11,5 @@ class config:
         self.port = common_env.DB_PORT
         self.tz_aware = common_env.DB_TZ_AWARE
         self.connect = common_env.DB_CONNECT
-        self.connect_options = common_env.DB_OPTIONS
+        self.connection_options = common_env.DB_CONNECTION_OPTIONS
+        self.db = common_env.DB_DATABASE
