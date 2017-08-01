@@ -1,6 +1,6 @@
 # coding=utf-8
 import backend_common.env as common_env
-import database
+import mongodb
 import elastic_search
 import mail
 
@@ -8,7 +8,7 @@ import mail
 mode = common_env.APP_MODE
 
 # 数据库配置
-database = database.config(mode)
+mongodb = mongodb.config(mode)
 # ES配置
 elastic_search = elastic_search.config(mode)
 # 邮箱配置

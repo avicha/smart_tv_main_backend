@@ -1,12 +1,12 @@
 # coding=utf-8
 APP_MODE = 'development'
-# 数据库配置
-DB_HOST = '127.0.0.1'
-DB_PORT = 27017
-DB_DATABASE = 'smart_tv'
-DB_TZ_AWARE = True
-DB_CONNECT = True
-DB_OPTIONS = {
+# Mongodb数据库配置
+MONGODB_HOST = '127.0.0.1'
+MONGODB_PORT = 27017
+MONGODB_DATABASE = 'smart_tv'
+MONGODB_TZ_AWARE = True
+MONGODB_CONNECT = True
+MONGODB_OPTIONS = {
     'minPoolSize': 4,
     'maxPoolSize': 16,
     'connectTimeoutMS': 5000,
