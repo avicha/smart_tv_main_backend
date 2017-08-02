@@ -6,7 +6,7 @@ MONGODB_PORT = 27017
 MONGODB_DATABASE = 'smart_tv'
 MONGODB_TZ_AWARE = True
 MONGODB_CONNECT = True
-MONGODB_OPTIONS = {
+MONGODB_CONNECTION_OPTIONS = {
     'minPoolSize': 4,
     'maxPoolSize': 16,
     'connectTimeoutMS': 5000,

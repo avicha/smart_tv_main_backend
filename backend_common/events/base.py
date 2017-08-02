@@ -12,5 +12,5 @@ class BaseEvent():
     def send(self, sender, **args):
         return self.signal.send(sender, **args)
 
-    def handle(self, sender, **args):
+    def handler(self, sender, **args):
         return
