@@ -74,7 +74,7 @@ def log_response(sender, response, **extra):
                 current_app.logger.error('耗时%.fms，发生系统未捕获错误，错误信息：%s，请求参数：\n%s', dt, errmsg.encode('utf-8'), data_str)
             else:
                 current_app.logger.error('耗时%.fms，请求业务API出错，返回错误码%s，错误信息：%s，请求参数：\n%s', dt, errcode, errmsg.encode('utf-8'), data_str)
-    except Exception, e:
+    except Exception as e:
         pass
 
 
@@ -90,6 +90,10 @@ def create_app():
     return current_app
 
 current_app = create_app()
+
+#@current_app.route('/')
+#def hello_world():
+#    return 'Hello, World!'
 
 if __name__ == '__main__':
     current_app.run(config.server.host, config.server.port, config.server.debug, **config.server.options)

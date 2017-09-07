@@ -1,5 +1,5 @@
 # coding=utf-8
-from base_error import BaseError
+from backend_common.exceptions.base_error import BaseError
 from backend_common.services.remote_api import RemoteAPIError
 
 

@@ -1,2 +1,2 @@
 # coding=utf-8
-import dict_utils
+import backend_common.services.utils.dict_utils

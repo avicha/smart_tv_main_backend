@@ -1,8 +1,8 @@
 # coding=utf-8
 import backend_common.env as common_env
-import mongodb
-import elastic_search
-import mail
+import backend_common.config.mongodb
+import backend_common.config.elastic_search
+import backend_common.config.mail
 
 # 环境变量
 mode = common_env.APP_MODE

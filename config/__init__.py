@@ -1,7 +1,7 @@
 # coding=utf-8
-import server
-import logger
-import cache
+import config.server
+import config.logger
+import config.cache
 
 from backend_common.config import *
 # 服务器配置

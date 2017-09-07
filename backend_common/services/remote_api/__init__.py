@@ -1,7 +1,7 @@
 # coding=utf-8
-import httplib
+import http.client
 import urllib
-from urlparse import urlparse
+from urllib.parse import urlparse
 import json
 import time
 

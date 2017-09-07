@@ -38,7 +38,7 @@ def load_admin(f):
                 raise AdminModel.TokenError(u'登录已经过期')
             except BadSignature:
                 raise AdminModel.PasswordError()
-            except AdminModel.DoesNotExist, e:
+            except AdminModel.DoesNotExist as e:
                 raise AdminModel.NotFoundError(u'该用户不存在')
         else:
             kwargs.update({'admin': None})
@@ -68,7 +68,7 @@ def load_user(f):
                 raise UserModel.TokenError(u'登录已经过期')
             except BadSignature:
                 raise UserModel.TokenError(u'登录Token信息错误')
-            except UserModel.DoesNotExist, e:
+            except UserModel.DoesNotExist as e:
                 raise UserModel.NotFoundError(u'该用户不存在')
         else:
             kwargs.update({'user': None})
