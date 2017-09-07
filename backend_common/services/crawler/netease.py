@@ -86,5 +86,5 @@ def search_songs(keywords, page, limit):
             songs.append(song)
         return songs, total_rows
     else:
-        print resp
+        print(resp)
         return [], 0

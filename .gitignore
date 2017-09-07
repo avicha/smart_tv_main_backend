@@ -2,3 +2,4 @@
 env.py
 .cache
 .idea/*
+.DS_Store

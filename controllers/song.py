@@ -97,5 +97,5 @@ class SongController(BaseController):
         results = cls.remove_unavailable_songs(search_songs)
         results = cls.uniq_songs(results)
         results = cls.sort_songs(results, keywords=keywords)
-        print results
+        print(results)
         return cls.success_with_list_result(total_rows, results)
