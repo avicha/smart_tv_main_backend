@@ -1,6 +1,5 @@
 # coding=utf-8
 from backend_common.exceptions.base_error import BaseError
-from backend_common.services.remote_api import RemoteAPIError
 
 
 def uncaught_error_handler(e):
@@ -11,7 +10,7 @@ def uncaught_error_handler(e):
 
 
 def init_app(server):
-    exceptions = [BaseError, RemoteAPIError]
+    exceptions = [BaseError]
     for e in exceptions:
         server.register_error_handler(e, e.handler)
     server.register_error_handler(Exception, uncaught_error_handler)

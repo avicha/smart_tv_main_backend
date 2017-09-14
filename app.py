@@ -91,9 +91,6 @@ def create_app():
 
 current_app = create_app()
 
-#@current_app.route('/')
-#def hello_world():
-#    return 'Hello, World!'
 
 if __name__ == '__main__':
     current_app.run(config.server.host, config.server.port, config.server.debug, **config.server.options)
