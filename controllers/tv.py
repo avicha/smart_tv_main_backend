@@ -17,9 +17,9 @@ class TVController(BaseController):
         keywords = data.get('keywords')
         page = int(data.get('page', 1))
         rows = int(data.get('rows', 20))
-        filter = {'name': {'$regex': keywords}}
-        total_rows = db.tvs.count(filter)
-        cursor = db.tvs.find(filter).skip((page - 1)*rows).limit(rows)
+        query = {'name': {'$regex': keywords}, 'category': 'tv'}
+        total_rows = db.videos.count(query)
+        cursor = db.videos.find(query).skip((page - 1)*rows).limit(rows)
         for x in cursor:
             x.update({'_id': str(x.get('_id'))})
             results.append(x)
