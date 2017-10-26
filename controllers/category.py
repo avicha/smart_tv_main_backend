@@ -49,7 +49,7 @@ class CategoryController(BaseController):
                 "desc": "我是直播"
             },
             {
-                "type": "television",
+                "type": "channel",
                 "icon": "",
                 "name": "电视",
                 "desc": "我是电视"

@@ -7,6 +7,7 @@ from controllers.common import common_blueprint, CommonController
 
 
 def init_app(current_app):
+    tv_blueprint.add_url_rule('/get_search_options', 'get_search_options_api', TVController.get_search_options, methods=['get'])
     tv_blueprint.add_url_rule('/search', 'search_api', TVController.search, methods=['get', 'post'])
     current_app.register_blueprint(tv_blueprint, url_prefix='/api/tv')
 
