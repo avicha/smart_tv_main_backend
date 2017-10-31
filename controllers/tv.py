@@ -179,7 +179,7 @@ class TVController(BaseController):
         sort = data.get('sort', 'new')
         query = {'category': 'tv'}
         resource_query = {'status': {'$not': {'$eq': -1}}}
-        fields = ['_id', 'name', 'resources.id', 'resources.actors', 'resources.source', 'resources.is_vip', 'resources.status']
+        fields = ['_id', 'name', 'resources.id', 'resources.source', 'resources.folder', 'resources.actors', 'resources.is_vip', 'resources.status']
         query_tags = []
         if keywords:
             query.update({'name': {'$regex': keywords}})
@@ -225,3 +225,27 @@ class TVController(BaseController):
             x.update({'resource': resource})
             results.append(x)
         return cls.success_with_list_result(total_rows, results)
+
+    @classmethod
+    @get_request_params()
+    def get_detail(cls, data):
+        id = data.get('id')
+        source = int(data.get('source'))
+        fields = ['_id', 'name', 'resources.id', 'resources.source', 'resources.status', 'resources.current_part', 'resources.part_count', 'resources.director', 'resources.alias', 'resources.types', 'resources.desc', 'resources.actors_detail', 'resources.actors', 'resources.update_notify_desc', 'resources.score', 'resources.publish_date', 'resources.folder', 'resources.region', 'resources.is_vip']
+        tv = db.videos.find_one({'resources': {'$elemMatch': {'id': id, 'source': source}}}, fields)
+        resource = list(filter(lambda x: x.get('id') == id, tv.get('resources')))[0]
+        del tv['resources']
+        tv.update({'_id': str(tv.get('_id')), 'resource': resource})
+        return cls.success_with_result(tv)
+
+    @classmethod
+    @get_request_params()
+    def get_parts(cls, data):
+        id = data.get('id')
+        source = int(data.get('source'))
+        query = {'id': id, 'source': source}
+        video_parts = db.video_parts.find_one(query)
+        videos = video_parts.get('parts')
+        for video in videos:
+            video.update({'id': id, 'source': source})
+        return cls.success_with_list_result(len(videos), videos)
