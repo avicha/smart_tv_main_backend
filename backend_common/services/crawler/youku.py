@@ -45,7 +45,7 @@ def get_play_info(video_id):
         cna = get_cna()
         play_info = {}
         ups = get_ups(video_id, cna)
-        play_info['video_types'] = filter(lambda x: x.get('type') in ['mp4sd', 'mp4hd', 'mp4hd2'], map(lambda x: {'width': x.get('width'), 'height': x.get('height'), 'url': x.get('m3u8_url'), 'type': x.get('stream_type'), 'lang': x.get('audio_lang'), 'duration': x.get('milliseconds_video')}, ups.get('stream')))
+        play_info['playlist'] = filter(lambda x: x.get('type') in ['mp4sd', 'mp4hd', 'mp4hd2'], map(lambda x: {'width': x.get('width'), 'height': x.get('height'), 'url': x.get('m3u8_url'), 'type': x.get('stream_type'), 'lang': x.get('audio_lang'), 'duration': x.get('milliseconds_video')}, ups.get('stream')))
         next_part = ups.get('videos').get('next')
         previous_part = ups.get('videos').get('previous')
         play_info['next'] = {'video_id': next_part.get('encodevid'), 'source': video_source.YOUKU} if next_part else None
