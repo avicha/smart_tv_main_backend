@@ -4,6 +4,7 @@ from controllers.tv import tv_blueprint, TVController
 from controllers.user import user_blueprint, UserController
 from controllers.category import category_blueprint, CategoryController
 from controllers.common import common_blueprint, CommonController
+from controllers.video import video_blueprint, VideoController
 
 
 def init_app(current_app):
@@ -23,3 +24,6 @@ def init_app(current_app):
     common_blueprint.add_url_rule('/now', 'now_api', CommonController.now, methods=['get'])
     common_blueprint.add_url_rule('/weather', 'weather_api', CommonController.weather, methods=['get'])
     current_app.register_blueprint(common_blueprint, url_prefix='/api/common')
+
+    video_blueprint.add_url_rule('/get_play_info', 'get_play_info_api', VideoController.get_play_info, methods=['get'])
+    current_app.register_blueprint(video_blueprint, url_prefix='/api/video')
